@@ -1,40 +1,21 @@
 <?php
 require_once 'Config.php';
 
-$nomes = Array();
-$file = fopen("$arquivoCSV", 'r');
-$linha = 1;
+$lista_entrada = array(""); 
+$aprovados = array("");
+$reprovados = array("");
+
+$file = fopen("$arquivo_csv", 'r');
 while (($line = fgetcsv($file)) !== false)
 {
-  if ($linha < 50){
-    $nomemail = implode('',$line);
-    $data = "$nomemail";
-    list($nome, $address) = explode("-", $data);
-    $assunto = "Boa Tarde $nome";
-
-
-
-include_once 'TextEmail/TextEmail.php';
-include_once 'SVG/SVG.php';
-
-
-file_put_contents("$nome..svg", $SVG);
-
-exec("inkscape --export-type=\"pdf\" '$nome'..svg");
-
-exec("pdfunite '$nome'..pdf Certificadoverso.pdf '$nome'.pdf");
-
-exec("rm '$nome'..svg");
-
-exec("rm '$nome'..pdf");
-
-include 'envia_email.php';
-
-  }
-  $linha++;
-    
+  $nome_email_csv = implode('',$line);
+  $data_csv = "$nome_email_csv";
+  list($nome, $address) = explode("-", $data_csv);
+  
+  include 'chamada/chamada.php';
 }
-
-
-
 fclose($file);
+
+file_put_contents("chamada/lista.txt", $lista_entrada);
+file_put_contents("chamada/reprovados.txt", $reprovados);
+file_put_contents("chamada/aprovados.txt", $aprovados);
