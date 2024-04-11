@@ -16,9 +16,9 @@ $conta_data = 1;
   $conta_data--;
   if ($presença_aluno >= $conta_data*0.75)
   {
-    //include 'TextEmail/TextEmail.php';
-    //include 'SVG/SVG.php';
-    //include 'Email/envia_email.php';
+    include 'TextEmail/TextEmail.php';
+    include 'SVG/SVG.php';
+    include 'Email/envia_email.php';
     array_push($aprovados, "$nome esta aprovado\n");
   }
   echo $conta_data;
