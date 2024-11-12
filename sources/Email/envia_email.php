@@ -1,6 +1,7 @@
 <?php
-require_once 'Email/PHPMailerAutoload.php';
-require_once 'Email/class.phpmailer.php';
+require_once 'sources/Email/PHPMailerAutoload.php';
+require_once 'sources/Email/class.phpmailer.php';
+require_once 'sources/Email/TextEmail.php';
 
 $mailer = new PHPMailer;
 
@@ -36,11 +37,11 @@ $mailer->Subject = $assunto;
 $mailer->MsgHTML($corpoMSG);
 
 // anexar arquivo
-$arquivo = "certificados/$nome.pdf";
+$arquivo = "chamada-certificado/certificados/$nome.pdf";
 $mailer->AddAttachment($arquivo);
 
 if(!$mailer->Send()) {
-   echo "Erro: " . $mailer->ErrorInfo;
+   echo "\nErro: " . $mailer->ErrorInfo;
   } else {
-   echo "Mensagem enviada com sucesso!";
+   echo "\nMensagem enviada com sucesso!";
   }

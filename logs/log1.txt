@@ -1,3 +1,0 @@
-Salvado em:10 abril 2024, 14:32
-Curso	Hora	endereço IP	Nome completo	Ação	Informação
-Academia - Ambiente Livre	1 abril 2024, 15:25	177.92.26.242	Miguel Domiciano Vieira	course report log	Academia de Software Livre - Ambiente Livre 
